@@ -98,6 +98,23 @@ to open the file you can use the following command
 nano ~/mattermost/volumes/app/mattermost/config/config.json
 ```
 
+to create certs you can use
+
+```sh
+mkdir ~/volumes/web/cert/
+openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout ~/volumes/web/cert/key-no-password.pem \
+  -out ~/volumes/web/cert/cert.pem \
+  -subj "/C=US/ST=Local/L=Localhost/O=LocalDev/CN=localhost"
+```
+
+also to create dhparams4096.pem
+
+```sh
+openssl dhparam -out dhparams4096.pem 4096
+```
+
 ## Built With
 
 - Love ❤️
